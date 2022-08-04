@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" href="contactform.SE.css">
+</head>
+
+<body>
+    <div class="container2">
+
+        <h2>Contact Form</h2>
+        <form class="ui form segment">
+            <div class="field">
+                <label>First name</label>
+                <div class="ui left icon input">
+
+                    <input type="text" name="firstname" placeholder="Firstname">
+                </div>
+
+            </div>
+            <div class="field">
+                <label>Last Name</label>
+                <div class="ui left icon input">
+
+                    <input type="text" name="lastname" placeholder="Lastname">
+                </div>
+
+            </div>
+            <div class="field">
+                <label>Country</label>
+                <select class="ui dropdown" name="gender">
+                    <option value="">VietNam</option>
+                    <option value="male">USA</option>
+                    <option value="female">Korea</option>
+                </select>
+
+            </div>
+
+            <div>
+                <div class="field">
+                    <label>Subject</label>
+                    <textarea name="subject"></textarea>
+                </div>
+
+            </div>
+
+            <div class="ui submit button">Submit</div>
+            <div class="ui error message"></div>
+
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="contactformSE.js"></script>
+</body>
+
+</html>

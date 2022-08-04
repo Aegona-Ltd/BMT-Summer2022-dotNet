@@ -1,0 +1,131 @@
+body {
+    background: rgba(0, 0, 0, 0.25);
+  }
+.container{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 80px;
+}
+.haha{
+  display: flex;
+  position: relative;
+ 
+}
+i{
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    cursor: pointer;
+    font-size: larger;
+   
+}
+.ui[class*="left icon"].input > input {
+    padding-left: 30px!important;
+   
+}
+img {
+    border-style: none;
+    width: 50px;
+    height: 50px;
+}
+
+.text{
+    font-size: 25px;
+    font-weight: 600;
+    color: #00B5AD ;
+}
+.ui.teal.buttons .button, .ui.teal.button {
+    background-color: #00B5AD;
+    color: #FFFFFF;
+    text-shadow: none;
+    background-image: none;
+}
+p{
+   text-align: center;
+}
+
+.container2{
+    padding-top: 5px;
+}
+
+.ui.submit.button{
+    margin-top: 10px;
+}
+
+h2{
+    text-align: center;
+}
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .reponsive{
+        
+    }
+    .header{
+       
+       display: flex;
+       align-items: center;
+        justify-content: center;
+        width: 100%;
+        
+    }
+    .hinh{
+        margin-left: -11px;
+       
+    }
+    .text{
+      
+       margin-left: -4px;
+       
+    }
+    .ui.form.segment{
+        width: 80%;
+        margin-left: 46px
+    }
+    .cot{
+        margin-right: 120px; 
+    }
+}
+
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .reponsive{
+      
+     }
+     .header{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 100%;
+     }
+     .hinh{
+         margin-left: -10px;
+     }
+     .text{
+        width: 300px;
+        margin-left: -20px;
+     }
+     .ui.form.segment{
+          width: 100%;
+          margin: 0 auto;
+          margin-top: 30px;
+     }
+     .cot{
+         margin-right: 20px; 
+     }
+}
+

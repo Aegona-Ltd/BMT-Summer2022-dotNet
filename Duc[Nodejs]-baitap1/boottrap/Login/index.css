@@ -1,0 +1,72 @@
+body {
+    background-color: lightblue;
+  }
+
+
+.container{
+    border: 1px solid red;
+    width: 500px;
+    height: 500px;
+    margin-top: 50px;
+    background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+}
+.text{
+  font-size: 25px;
+  font-weight: 600;
+  color: red;
+}
+.form-group{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-left: 75px;
+  gap:10px;
+  margin-top: 10px;
+}
+.content{
+  margin-left: 75px;
+}
+button{
+  margin-top: 10px;
+}
+
+@media (max-width: 575.98px) { 
+  .container{
+    width: 100%;
+    
+   
+}
+.form-group{
+  margin-right: 50px;
+}
+img{
+  margin-left: -60px;
+}
+.text{
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.content{
+  margin-left: 15px;
+}
+}
+
+
+/* @media (max-width: 767.98px) { 
+
+  .container{
+    width: 100%;
+    background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+}
+}
+
+
+@media (max-width: 991.98px) { 
+  .container{
+    width: 100%;
+    background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+}
+ } */
+
