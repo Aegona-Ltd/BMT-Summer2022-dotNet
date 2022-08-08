@@ -25,7 +25,8 @@
 
             <div class="grid">
 
-                <form action="https://httpbin.org/post" method="POST" class="form login">
+                <form id="contactForm1" action="https://jsonplaceholder.typicode.com/posts" method="POST"
+                    class="form login" onsubmit="return submitUserForm();">
                     <div class="login-text">LOGIN</div>
                     <div class="form__field">
 
@@ -45,7 +46,9 @@
                     </div>
 
 
-                    <div class="g-recaptcha" data-sitekey="6LfKfkYhAAAAABZBjE1frKIBS_iu9liKIsoaceU_"></div>
+                    <div class="g-recaptcha" data-sitekey="6LfKfkYhAAAAABZBjE1frKIBS_iu9liKIsoaceU_"
+                        data-callback="verifyCaptcha"></div>
+                    <div id="g-recaptcha-error"></div>
                     <div class="form__field">
                         <input type="submit" value="Sign In">
                     </div>
@@ -77,6 +80,42 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </div>
 
+    <script type="text/javascript">
+        function submitUserForm() {
+            let response = grecaptcha.getResponse();
+            console.log(response.length);
+            if (response.length === 0) {
+                document.getElementById('g-recaptcha-error').innerHTML = '<span style="color: red ;">Chưa tích captcha</span>'
+                return false;
+            }
+            return true;
+        }
+
+        function verifyCaptcha() {
+            console.log('verified');
+            document.getElementById('g-recaptcha-error').innerHTML = '';
+        }
+        var frm = $('#contactForm1');
+
+        frm.submit(function (e) {
+
+            e.preventDefault();
+
+            $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success: function (data) {
+                    console.log('Submission was successful.');
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log('An error occurred.');
+                    console.log(data);
+                },
+            });
+        });
+    </script>
 
 
 
