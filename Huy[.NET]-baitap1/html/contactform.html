@@ -9,88 +9,61 @@
     <title>Contact Form</title>
 </head>
 <body>
-    <form class=" needs-validation" novalidate>
+    <form name="contact" id="contactForm" >
         <div class="mb-3" >
             <header>Contact Form</header>
         </div>
         <div class="mb-3">
             <label class="form-label" for="fullname"><b>Full name</b></label>
-            <div class="input-group has-validation">
+            <div class="input-group">
                 <span class="input-group-text" id="basic-addon1"><img src="/imagess/user.png" alt=""></span>
-                <input type="text" class="form-control" placeholder="Enter full name" name="fullname" id="" required>
-                <div class="invalid-feedback">
-                    Please choose a fullname.
-                </div>
+                <input type="text" class="form-control" placeholder="Enter full name" name="fullname" id="fullname">
             </div>
+            <div id="validation-fullname" class="valid-input"></div>
         </div>
         <div class="mb-3"></div>
             <label class="form-label" for="email"><b>Email</b></label>
-            <div class="input-group has-validation">
+            <div class="input-group">
                 <span class="input-group-text" id="basic-addon1"><img src="/imagess/email.jpg" alt=""></span>
-                <input type="email" class="form-control" placeholder="Enter email" name="email" id="" required>
-                <div class="invalid-feedback">
-                    Please choose a email.
-                </div>
-            </div>           
+                <input type="email" class="form-control" placeholder="Enter email" name="email" id="email" >
+            </div> 
+            <div id="validation-email" class="valid-input"></div>          
         </div> 
         <div class="mb-3"></div>
             <label class="form-label" for="phone"><b>Phone number</b></label>
-            <div class="input-group has-validation">
+            <div class="input-group ">
                 <span class="input-group-text" id="basic-addon1"><img src="/imagess/phone.jpg" alt=""></span>
-                <input type="text" class="form-control" placeholder="Enter phone" name="phone" id="" required>
-                <div class="invalid-feedback">
-                    Please choose a phone.
-                </div>
-            </div>   
+                <input type="text" class="form-control" placeholder="Enter phone" name="phone" id="phone" >
+            </div>
+            <div id="validation-phone" class="valid-input"></div>   
         </div> 
         <div class="mb-3"></div>
             <label class="form-label" for="subject"><b>Subject</b></label>
-            <div class="input-group has-validation">
+            <div class="input-group ">
                 <span class="input-group-text" id="basic-addon1"><img src="/imagess/subject.png" alt=""></span>
-                <input type="text" class="form-control" placeholder="Enter subject" name="subject" id="" required>
-                <div class="invalid-feedback">
-                    Please choose a subject.
-                </div>
+                <input type="text" class="form-control" placeholder="Enter subject" name="subject" id="subject" >
             </div>
+            <div id="validation-subject" class="valid-input"></div>
         </div>
         <div class="mb-3">
             <label for="message" class="form-label"><b>Message</b></label>
-            <div class="was-validated">
-                <textarea class="form-control is-invalid" id="mes" rows="3" required></textarea>
-                <div class="invalid-feedback" hidden>
-                    Please enter a message in the textarea.
-                </div>
+            <div class="">
+                <textarea class="form-control" name="mes" id="mes" rows="3"></textarea>
             </div>
-            
+            <div id="validation-mes" class="valid-input"></div>
         </div> 
         <div class="mb-3">
             <div class="button">
 				<div class="inner">
 				</div>
-				<button>SUBMIT</button>
+				<button type="button" onclick="contactForm(document.contact)">SUBMIT</button>
 			</div>
         </div>
     </form>
-    <script src="huycss/js/bootstrap.bundle.min.js"></script>
-    <script>
-        (() => {
-'use strict'
-
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
-const forms = document.querySelectorAll('.needs-validation')
-
-// Loop over them and prevent submission
-Array.from(forms).forEach(form => {
-form.addEventListener('submit', event => {
- if (!form.checkValidity()) {
-   event.preventDefault()
-   event.stopPropagation()
- }
-
- form.classList.add('was-validated')
-}, false)
-})
-})()
-</script>
+    <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+    <script src="/js/fake_api_contact.js" ></script>
 </body>
 </html>
