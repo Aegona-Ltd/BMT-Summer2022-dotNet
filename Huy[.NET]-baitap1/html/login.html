@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/huycss/login.css">
+    <link rel="stylesheet" href="/huycss/css/bootstrap.min.css">
+    
+    <title>Login</title>
+</head>
+<body>
+    <form action="/huhu" id="loginForm" class="needs-validation" novalidate>
+            <header>Login Form</header>
+        <div class="mb-3">
+            <label class="form-label" for="email"><b>Email</b></label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="basic-addon1"><img src="/imagess/email.jpg" alt=""></span>
+                <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email" required>
+                <div class="invalid-feedback">
+                    Please choose a email.
+                </div>
+            </div>
+        </div>
+        <div class="mb-3"></div>
+            <label class="form-label" for="psw"><b>Password</b></label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="basic-addon1"><img src="/imagess/password.png" alt=""></span>
+                <input type="password" class="form-control" placeholder="Enter Password" name="password" id="password" required>
+                <div class="invalid-feedback">
+                    Please choose a password.
+                </div>
+            </div>
+            
+        </div>
+        <br>
+        <div class="mb-3">
+                <label for="">
+                    <input type="checkbox" checked='checked' name="remember" id="">Remember me
+                </label>        
+        </div>
+        <div class="mb-3">
+            <div class="button">
+				<div class="inner">
+				</div>
+				<button type="submit" id="btnLogin">LOGIN</button>
+			</div>
+            <!-- <input type="submit" id="btnlogin" value="LOGIN" class="btn btn-primary"> -->
+        </div>
+        <div class="mb-3">
+            <div class="auth">
+                Or login with</div>
+                <div class="links">
+                    <div class="facebook">
+                        <i class="fab fa-facebook-square"><span>Facebook</span></i>
+                    </div>
+                    <div class="google">
+                        <i class="fab fa-google-plus-square"><span>Google</span></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <p>You don't have account ? Please <a href="">Register</a></p>
+        </div>
+    </form>
+    <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+    <script src="/js/fake_api.js"></script>
+    
+    <script>
+             (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+    </script>
+</body>
+</html>

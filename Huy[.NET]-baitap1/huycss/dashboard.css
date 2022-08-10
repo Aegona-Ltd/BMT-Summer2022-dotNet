@@ -1,0 +1,31 @@
+
+/* body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+    justify-content: center;
+    background: url(https://devforum.info/DEMO/LoginForm1/bg.jpg);
+    background-size: cover;
+    background-position: center;
+} */
+body{
+    background: url(https://devforum.info/DEMO/LoginForm1/bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+ 
+.box{
+    height: 480px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.box1{
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.scrollable{
+    height: 300px;
+    overflow: scroll;
+}
