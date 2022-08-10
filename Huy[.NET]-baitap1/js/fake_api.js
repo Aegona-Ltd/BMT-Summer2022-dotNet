@@ -1,49 +1,31 @@
-// var loginData = function(){
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function(){
-//         if(this.readyState == 4 && this.status == 200)
-//         addLoginData(this.response)
-//     }
-//     xhttp.open('GET','https://private-3701d-loginformapi.apiary-mock.com/accounts',true);
-//     xhttp.send();
-// }
-// var addLoginData = function(){
 
-// }
-// var email = document.getElementById('email').val();
-// var password = document.getElementById('password').val();
-// $('#loginForm').submit(function(event){
-//     event.preventDefault();
-//     $.ajax({
-//         type:"GET",
-//         dataType: "json",
-//         url:"https://private-3701d-loginformapi.apiary-mock.com/accounts",
-//         data:{
-//             'email': email,
-//             'password': password
-//         },
-//         success: function(result){
-//             if(result > 1){
-//                 window.location.href = 'dashboard.html'
-//             }else
-//             {
-//                 $('#result').empty().addClass('error')
-//                     .append('Something is wrong.');
-//             }
-//         }
-//     })
-//     return false
-// })
-    $("#btnLogin").click(function (e) {
-        e.preventDefault();
-        //collect userName and password entered by users
-        var email = $('#email').val();
-        var password = $('#password').val();
-        authenticate(email,password);
+    function loginAccount(formLogin) {
+        document.getElementById('validation-email').innerText = "";
+        document.getElementById('validation-password').innerText = "";
+        const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+        let check = false
+        if (formLogin.email.value.length==0) {
+            document.getElementById('validation-email').innerText = "Email is not null";
+            document.getElementById('email').focus();
+            check = true
+        }else if (!formLogin.email.value.match(validRegex)) {
+            document.getElementById('validation-email').innerText = "Invalid email";
+            document.getElementById('email').focus();
+            check = true
+        }
+        if (formLogin.password.value.length==0) {
+            document.getElementById('validation-password').innerText = "Password is not null";
+            document.getElementById('password').focus();
+            check = true
+        }
+        return (check) ? "":authenticate()
+    }
 
-    });
 
-function authenticate(email, password) {
+function authenticate() {
+    var email = $('#email').val();
+    var password = $('#password').val();
 $.ajax({
 type: "POST",
 //the url where you want to sent the userName and password to

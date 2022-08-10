@@ -10,28 +10,23 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="/huhu" id="loginForm" class="needs-validation" novalidate>
+    <form action="" name="login" id="loginForm" >
             <header>Login Form</header>
         <div class="mb-3">
             <label class="form-label" for="email"><b>Email</b></label>
-            <div class="input-group has-validation">
+            <div class="input-group">
                 <span class="input-group-text" id="basic-addon1"><img src="/imagess/email.jpg" alt=""></span>
-                <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email" required>
-                <div class="invalid-feedback">
-                    Please choose a email.
-                </div>
+                <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email">
             </div>
+            <div id="validation-email" class="valid-input"></div>
         </div>
         <div class="mb-3"></div>
             <label class="form-label" for="psw"><b>Password</b></label>
-            <div class="input-group has-validation">
+            <div class="input-group">
                 <span class="input-group-text" id="basic-addon1"><img src="/imagess/password.png" alt=""></span>
-                <input type="password" class="form-control" placeholder="Enter Password" name="password" id="password" required>
-                <div class="invalid-feedback">
-                    Please choose a password.
-                </div>
+                <input type="password" class="form-control" placeholder="Enter Password" name="password" id="password">
             </div>
-            
+            <div id="validation-password" class="valid-input"></div>
         </div>
         <br>
         <div class="mb-3">
@@ -43,7 +38,7 @@
             <div class="button">
 				<div class="inner">
 				</div>
-				<button type="submit" id="btnLogin">LOGIN</button>
+				<button type="button" onclick="loginAccount(document.login)" id="btnLogin">LOGIN</button>
 			</div>
             <!-- <input type="submit" id="btnlogin" value="LOGIN" class="btn btn-primary"> -->
         </div>
@@ -76,7 +71,6 @@
 
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll('.needs-validation')
-
   // Loop over them and prevent submission
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
