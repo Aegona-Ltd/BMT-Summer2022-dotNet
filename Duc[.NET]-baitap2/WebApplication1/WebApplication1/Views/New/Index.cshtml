@@ -1,0 +1,38 @@
+﻿
+@model List<WebApplication1.Controllers.Article>
+
+    @{
+        Layout = "_Layout";
+        // var articles = ViewBag.Article; // khong can ep kieu du lieu
+        // var articles = ViewData["Articles"] as List<WebApplication1.Controllers.Article>; // phai ep kieu du lieu
+
+    }
+
+    <h1>Xin chao</h1>
+
+
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Author</th>
+        </tr>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td>@article.Id</td>
+                <td>@article.Title</td>
+                <td>@article.Content</td>
+                <td>@article.Author</td>
+            </tr>
+        }
+    </table>
+
+    @section Scripts{
+        <script>
+
+        </script>
+    }
+
