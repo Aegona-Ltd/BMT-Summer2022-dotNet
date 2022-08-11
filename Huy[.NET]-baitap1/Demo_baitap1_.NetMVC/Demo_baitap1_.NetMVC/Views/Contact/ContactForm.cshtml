@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/huycss/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/huycss/contactform.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
-    
-    <title>Contact Form</title>
-</head>
-<body>
-    <form name="contact" id="contactForm" >
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/huycss/contactform.css">
+    <link href="~/https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <script
+          src="~/https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+    <script src="~/js/fake_api_contact.js" ></script>
+    <script src="~/https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+}
+<form asp-controller="contact" asp-action="addcontactform" name="contact" id="contactForm" >
         <div class="mb-3" >
             <header>Contact Form</header>
         </div>
@@ -62,12 +63,3 @@
 			</div>
         </div>
     </form>
-    
-    <script
-          src="https://code.jquery.com/jquery-3.4.1.min.js"
-          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-          crossorigin="anonymous"></script>
-    <script src="/js/fake_api_contact.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-</body>
-</html>

@@ -1,0 +1,16 @@
+﻿<h3>List Account</h3>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Email</td>
+        <td>Password</td>
+    </tr>
+    @foreach(var account in ViewBag.accounts)
+    {
+        <tr>
+            <td>@account.Id</td>
+            <td>@account.Email</td>
+            <td>@account.Password</td>
+        </tr>
+    }
+</table>
