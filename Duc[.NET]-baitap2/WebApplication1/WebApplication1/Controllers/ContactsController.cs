@@ -6,24 +6,30 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Helper;
 using WebApplication1.Models;
+using WebApplication1.Options;
 
 namespace WebApplication1.Controllers
 {
     public class ContactsController : Controller
     {
         private readonly ContactContext _context;
-
+        private object _helper;
+  
         public ContactsController(ContactContext context)
         {
             _context = context;
+         
         }
 
         // GET: Contacts
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? pageNumber)
         {
-            return View(await _context.Contacts.ToListAsync());
+            int pageSize = 5;
+            return View(PaginatedList<Contact>.Create(_context.Contacts.ToList(), pageNumber ?? 1, pageSize));
         }
+
 
         // GET: Contacts/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -46,6 +52,7 @@ namespace WebApplication1.Controllers
         // GET: Contacts/Create
         public IActionResult Create()
         {
+           
             return View();
         }
 
@@ -56,6 +63,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,Country,Subject")] Contact contact)
         {
+    
             if (ModelState.IsValid)
             {
                 _context.Add(contact);

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Data;
+using WebApplication1.Options;
 
 namespace WebApplication1
 {
@@ -29,6 +30,8 @@ namespace WebApplication1
             services.AddDbContext<ContactContext>(options =>
                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
                new MySqlServerVersion(new Version(8, 0, 29))));
+
+            services.Configure<RecaptchaOption>(Configuration.GetSection(nameof(RecaptchaOption)));
            
         }
 
