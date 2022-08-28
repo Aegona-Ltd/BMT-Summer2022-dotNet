@@ -162,3 +162,8 @@ D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Instructo
 D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Instructors\Details.cshtml.g.cs
 D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Instructors\Edit.cshtml.g.cs
 D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Instructors\Index.cshtml.g.cs
+D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Departments\Create.cshtml.g.cs
+D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Departments\Delete.cshtml.g.cs
+D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Departments\Details.cshtml.g.cs
+D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Departments\Edit.cshtml.g.cs
+D:\Dotnet\WebApplication5\WebApplication5\obj\Debug\net5.0\Razor\Views\Departments\Index.cshtml.g.cs

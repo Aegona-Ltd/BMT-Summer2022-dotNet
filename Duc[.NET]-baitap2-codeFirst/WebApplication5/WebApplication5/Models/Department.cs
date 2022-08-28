@@ -22,7 +22,7 @@ namespace WebApplication5.Models
 
         public int? InstructorID { get; set; }
         [Timestamp]
-        public byte[]? RowVersion { get; set; }
+        public byte[] RowVersion { get; set; }
         public Instructor? Administrator { get; set; }
         public List<Course>? Courses { get; set; }
     }
