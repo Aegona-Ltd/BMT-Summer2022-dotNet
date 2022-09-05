@@ -13,19 +13,53 @@ namespace Demo_baitap1_.NetMVC.Controllers
         {
             contactService = _contactService;
         }
-
-        [Route("addcontactform")]
-        [Route("")]
-        public IActionResult ContactForm()
+        [Route("index")]
+        
+        public IActionResult Index()
         {
-            return View("ContactForm", new Contact());
-        }
-        [HttpPost]
-        [Route("addcontactform")]
-        public IActionResult ContactForm(Contact contact)
-        {
-            contactService.CreateContact(contact);
             return View();
         }
+        [Route("loadData")]
+        [HttpGet]
+        public JsonResult loadData()
+        {
+            var listContact = contactService.FindAllC();
+            return Json(new
+            {
+                data = listContact,
+                status = true
+            });
+        }
+
+
+        //[HttpGet]
+        //[Route("addcontactform")]
+        //public IActionResult ContactForm()
+        //{
+        //    return View("ContactForm", new Contact());
+        //}
+        //[HttpPost]
+        //[Route("addcontactform")]
+        //public IActionResult ContactForm(Contact contact)
+        //{
+        //    contact.DateTime = DateTime.Now;
+        //    contactService.CreateContact(contact);
+        //    return RedirectToAction("FindAllC");
+        //}
+        //[Route("findallc")]
+        //[Route("")]
+        //public IActionResult FindAllC()
+        //{
+        //    ViewBag.contacts = contactService.FindAllC();
+        //    return View("ContactList");
+
+        //}
+        //[Route("details/{id}")]
+        //public IActionResult Details(int id)
+        //{
+        //    ViewBag.contact = contactService.FindById(id);
+
+        //    return View("ContactListShow");
+        //}
     }
 }

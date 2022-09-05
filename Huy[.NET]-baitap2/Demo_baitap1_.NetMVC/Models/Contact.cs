@@ -14,5 +14,6 @@ namespace Demo_baitap1_.NetMVC.Models
         [StringLength(250)]
         public string Subject { get; set; }
         public string Message { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

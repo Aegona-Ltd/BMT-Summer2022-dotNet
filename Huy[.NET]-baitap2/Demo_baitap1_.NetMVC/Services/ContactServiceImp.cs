@@ -14,5 +14,15 @@ namespace Demo_baitap1_.NetMVC.Services
             db.contact.Add(con);
             db.SaveChanges();
         }
+
+        public List<Contact> FindAllC()
+        {
+            return db.contact.ToList();
+        }
+
+        public Contact FindById(int id)
+        {
+            return db.contact.Find(id);
+        }
     }
 }

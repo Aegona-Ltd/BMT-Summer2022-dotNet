@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/huycss/contactlist.css">
+    <link href="~/https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <script src="~/https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="~/js/fake_api_listContact.js" ></script>
+    <script src="~/https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+}
+<form action="">
+      <header>Contact List</header>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Datetime</th>
+            <th scope="col">FullName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tblData">
+          @*@foreach (var contact in ViewBag.contacts)
+          {
+              <tr>
+                <td>@contact.Id</td>
+                <td>@contact.DateTime</td>
+                <td>@contact.FullName</td>
+                <td>@contact.Email</td>
+                <td>@contact.Phone</td>
+                <td>@contact.Subject</td>
+                <td><a asp-controller="contact" asp-action="details" asp-route-id="@contact.Id" class="btn btn-success">View</a> | <a type="button" class="btn btn-danger">Delete</a></td>
+              </tr>
+          }*@
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </form>
