@@ -1,0 +1,48 @@
+﻿@*@model IEnumerable<Huy_.Net__baitap3_API.Models.ContactListInfo>;*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/huycss/contactlist.css">
+   @* <link href="~/https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>*@
+   
+}
+<form action="">
+      <header>Contact List</header>
+    <table class="table table-hover" id="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">FullName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Subject</th>
+            <th scope="col">DateSend</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tblData">
+            
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul id="pagination" class="pagination justify-content-center">
+          @*<li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>*@
+        </ul>
+      </nav>
+    </form>
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/js/fake_api_listContact.js" ></script>
+    @*<script src="~/https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>*@
+}
