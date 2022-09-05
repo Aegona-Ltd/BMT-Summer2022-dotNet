@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebApplication6.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+
+    Page pager = new Page();
+    int pageNo = 0;
+    if (ViewBag.Page != null)
+    {
+        pager = ViewBag.Page;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<h1>Contact List</h1>
+
+<p>
+    <div class="button">
+        <a onclick="showInPopup('@Url.Action("AddOrEdit","Contacts",null,Context.Request.Scheme)', 'New Contact')" class="btn btn-success">
+            <div class="icon"><i class="fa fa-plus-square"></i></div>
+            <span class="text"> Create New </span>
+
+        </a>
+    </div>
+
+
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    <div class="btn-group-sm">
+
+                        <input value="Edit"  type="submit" onclick="showInPopup('@Url.Action("AddOrEdit","Contacts",new {id = item.ID},Context.Request.Scheme)', 'New Contact')" class="btn-group-vertical"/>
+                       
+                        <form asp-action="Delete" asp-route-id="@item.ID" class="text-danger" onsubmit="return jQueryAjaxDelete(this);">
+                            <input type="submit" value="Delete" class=" btn-danger" />
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+
+
+        <ul class="pagination justify-content-end">
+            @if (pager.CurrentPage > 1)
+            {
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="Contacts" asp-action="Index" asp-route-pg="1">First</a>
+                </li>
+
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="Contacts" asp-action="Index" asp-route-pg="@(pager.CurrentPage -1)">Previous</a>
+                </li>
+            }
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active":"")">
+                    <a class="page-link" asp-controller="Contacts" asp-action="Index" asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="Contacts" asp-action="Index" asp-route-pg="@(pager.CurrentPage +1)">Next</a>
+                </li>
+
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="Contacts" asp-action="Index" asp-route-pg="@(pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
