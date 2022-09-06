@@ -64,7 +64,7 @@
                 <td>
                     <div class="btn-group-sm">
 
-                        <input value="Edit"  type="submit" onclick="showInPopup('@Url.Action("AddOrEdit","Contacts",new {id = item.ID},Context.Request.Scheme)', 'New Contact')" class="btn-group-vertical"/>
+                        <input value="Edit"  type="submit" onclick="showInPopup('@Url.Action("AddOrEdit","Contacts",new {id = item.ID},Context.Request.Scheme)', 'Edit Contact')" class="btn-group-vertical"/>
                        
                         <form asp-action="Delete" asp-route-id="@item.ID" class="text-danger" onsubmit="return jQueryAjaxDelete(this);">
                             <input type="submit" value="Delete" class=" btn-danger" />

@@ -33,6 +33,7 @@ jQueryAjaxPost = form => {
                 }
                 else
                     $('#form-modal .modal-body').html(res.html);
+               
             },
             error: function (err) {
                 console.log(err)
@@ -57,6 +58,7 @@ jQueryAjaxDelete = form => {
                 success: function (res) {
                     $('#Index').html(res.html);
                     refreshPage();
+                   
                 },
                 error: function (err) {
                     console.log(err)

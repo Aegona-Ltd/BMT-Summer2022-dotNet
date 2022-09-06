@@ -66,7 +66,8 @@ namespace WebApplication6.Controllers
         // GET: Contacts/AddOrEdit
         public async  Task<IActionResult> AddOrEdit(int id = 0)
         {
-             if(id == 0)
+           
+            if (id == 0 )
             {
                 return View(new Contact());
             }
@@ -84,11 +85,10 @@ namespace WebApplication6.Controllers
         }
 
 
-     
+      
 
-    
 
-    
+
 
         public async Task<bool> CheckCaptcha()
 
@@ -120,14 +120,24 @@ namespace WebApplication6.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddOrEdit(int id, [Bind("ID,FirstName,LastName,Country,Subject")] Contact contact)
         {
-          
-
-            if (ModelState.IsValid)
+            var captchaImage = HttpContext.Request.Form["g-recaptcha-response"];
+            if (string.IsNullOrEmpty(captchaImage))
             {
-                if (id == 0)
+                return View(contact);
+            }
+
+            var verified = await CheckCaptcha();
+
+            if (!verified && ModelState.IsValid)
+            {
+                              
+                
+                
+                if ( id == 0)
                 {
                     _context.Add(contact);
                     await _context.SaveChangesAsync();
+                   
                 }
                 else
                 {
@@ -135,6 +145,7 @@ namespace WebApplication6.Controllers
                     {
                         _context.Update(contact);
                         await _context.SaveChangesAsync();
+                      
                     }
                     catch (DbUpdateConcurrencyException)
                     {
@@ -148,8 +159,9 @@ namespace WebApplication6.Controllers
                         }
                     }
                 }
-              
-                return Json(new {isValid = true,html = Helper.RenderRazorViewToString(this, "Index", _context.Contacts.ToList()) });
+
+                 return Json(new {isValid = true,html = Helper.RenderRazorViewToString(this, "Index", _context.Contacts.ToList()) });
+               
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "AddOrEdit", contact) });
         }
@@ -180,7 +192,7 @@ namespace WebApplication6.Controllers
             var contact = await _context.Contacts.FindAsync(id);
             _context.Contacts.Remove(contact);
             await _context.SaveChangesAsync();
-            return Json(new {  html = Helper.RenderRazorViewToString(this, "_ViewAll", _context.Contacts.ToList()) });
+            return Json(new {  html = Helper.RenderRazorViewToString(this, "Index", _context.Contacts.ToList()) });
         }
 
         private bool ContactExists(int id)

@@ -29,6 +29,7 @@ namespace WebApplication6
             services.AddDbContext<ContactContext>(options =>
           options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
           new MySqlServerVersion(new Version(8, 0, 29))));
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
