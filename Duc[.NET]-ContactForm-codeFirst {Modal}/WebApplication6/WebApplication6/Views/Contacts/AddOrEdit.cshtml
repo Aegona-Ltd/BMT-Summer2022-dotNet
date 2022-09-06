@@ -1,0 +1,52 @@
+﻿@model WebApplication6.Models.Contact
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4>Contact</h4>
+<hr />
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="AddOrEdit" asp-route-id="@Model.ID" onsubmit="return jQueryAjaxPost(this);" autocomplete="off" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LcTArkhAAAAACtQBiEFjO88yRkBI6AHonuz-bqX"></div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <textarea class="form-control" asp-for="Subject" rows="3"></textarea>
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
