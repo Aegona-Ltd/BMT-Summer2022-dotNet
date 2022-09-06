@@ -2406,11 +2406,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LeQuangHuyWork\\.NETcoreMVC\\LeQuangHuy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
+      "projectUniqueName": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
       "projectName": "Huy[.Net]-baitap3-API",
-      "projectPath": "D:\\LeQuangHuyWork\\.NETcoreMVC\\LeQuangHuy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
+      "projectPath": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\LeQuangHuyWork\\.NETcoreMVC\\LeQuangHuy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\obj\\",
+      "outputPath": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

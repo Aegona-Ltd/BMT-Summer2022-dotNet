@@ -21,7 +21,7 @@ namespace Huy_.Net__baitap3_API.Models
             try
             {
                 //6LdHcTwUAAAAAD_al4p9Zp7qMDvyZy6cCXW51hKEr
-                var secretKey = "6LdHcTwUAAAAAD_al4p9Zp7qMDvyZy6cCXW51hKEr";
+                var secretKey = "6Lfjp9MhAAAAAGw7HG6Jh6C-sVKWOqDN1e9bLp9m";
                 var postTask = await captchaClient
                     .PostAsync($"?secret={secretKey}&response={captcha}", new StringContent(""));
                 var result = await postTask.Content.ReadAsStringAsync();

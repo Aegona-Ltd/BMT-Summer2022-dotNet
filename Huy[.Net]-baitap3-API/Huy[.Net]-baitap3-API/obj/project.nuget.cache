@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WXoGmoRbpzQ9T8VWCbiEdQf/B1ovEGHs+zh22FWWL8o7ir9Zwt/MX1I4jx9rajiM/unxZSHcE2AxZkqhOvIZvA==",
+  "dgSpecHash": "1/8+aWtigXHJxFjMS7VQc6ufKDQHWsW9oC2GUL65J3HdpGSpgVKMoKkGUEJqTmNMSFKDOw7X5SK0EkipbzV13g==",
   "success": true,
-  "projectFilePath": "D:\\LeQuangHuyWork\\.NETcoreMVC\\LeQuangHuy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
+  "projectFilePath": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",

@@ -102,38 +102,26 @@ namespace Huy_.Net__baitap3_API.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    if (!Request.Form.ContainsKey("g-recaptcha-response"))
+                    if (!Request.Form.ContainsKey("g-recaptcha-response")) return BadRequest();
+                    var captcha = Request.Form["g-recaptcha-response"].ToString();
+                    if (!await captchaResult.IsValid(captcha)) return NotFound();
+                    if (contactFormInfo.File != null)
                     {
-                        var captcha = Request.Form["g-recaptcha-response"].ToString();
-                        if (!await captchaResult.IsValid(captcha))
+                        var path = Path.Combine(webHostEnvironment.WebRootPath, "uploads", GenerateFileName(contactFormInfo.File.ContentType));
+                        using (var fs = new FileStream(path, FileMode.Create))
                         {
-                            if (contactFormInfo.File != null)
-                            {
-                                var path = Path.Combine(webHostEnvironment.WebRootPath, "uploads", GenerateFileName(contactFormInfo.File.ContentType));
-                                using (var fs = new FileStream(path, FileMode.Create))
-                                {
-                                    contactFormInfo.File.CopyTo(fs);
-                                }
-                                contactFormInfo.FilePath = path;
-                                contactFormInfo.DaySend = DateTime.Now;
-                                contactService.Create(contactFormInfo);
-                                var status = false;
-                            }
-                            return Json(new
-                            {
-                                captcha = captcha,
-                                status = true,
-                            });
+                            contactFormInfo.File.CopyTo(fs);
                         }
-                        else
-                        {
-                            return NotFound();
-                        }
+                        contactFormInfo.FilePath = path;
+                        contactFormInfo.DaySend = DateTime.Now;
+                        contactService.Create(contactFormInfo);
+                        var status = false;
                     }
-                    else
+                    return Json(new
                     {
-                        return NotFound();
-                    }
+                        //captcha = captcha,
+                        status = true,
+                    });
                 }
                 else
                 {

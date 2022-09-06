@@ -51,17 +51,17 @@ function CreateContact() {
     var phone = $("#phone").val();
     var subject = $("#subject").val();
     var mes = $("#mes").val();
-    var formData = new FormData();
+    var grecaptchaResponse = window.grecaptcha.getResponse();
     var file = $('#file')[0].files[0];
+    var formData = new FormData();
     formData.append("File", file)
-    formData.append("FullName",name)
+    formData.append("FullName", name)
     formData.append("Email", email)
     formData.append("Phone", phone)
     formData.append("Subject", subject)
     formData.append("Message", mes)
-    var grecaptcha = window.grecaptcha.getResponse();
-    formData.append($('g-recaptcha-response'), grecaptcha)
-    if (grecaptcha.length == 0) {
+    formData.append("g-recaptcha-response", grecaptchaResponse)
+    if (grecaptchaResponse.length == 0) {
         $("#g-recaptcha-error").html("<span>Vui lòng xác nhận!</span>");
     }
     else {
@@ -78,6 +78,7 @@ function CreateContact() {
                     notificationme();
                     document.getElementsByName('contact')[0].reset();
                     window.grecaptcha.reset();
+
                 } else {
                     alert("that bai")
                 }
