@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Huy_.Net__baitap3_API.Models
 {
     public class ContactFormInfo
     {
+        [Required]
+        public int Id { get; set; }
         [Required(ErrorMessage = "FullName is not null 1")]
         [StringLength(50)]
         public string FullName { get; set; }
@@ -24,5 +27,7 @@ namespace Huy_.Net__baitap3_API.Models
         public DateTime DaySend { get; set; }
         public string? FilePath { get; set; }
         public IFormFile? File { get; set; }
+        //[BindProperty(Name = "g-recaptcha-response")]
+        //public string? GCaptchaResponse { get; set; }
     }
 }

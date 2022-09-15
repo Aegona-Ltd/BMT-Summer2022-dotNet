@@ -40,8 +40,8 @@
         check = true
     }
     //if (check == false) {
-    //    even.preventDefault
     //    document.getElementById("contactForm").submit();
+    //    event.preventDefault();
     //}
     return (check) ? "" : CreateContact()
 }
@@ -55,7 +55,7 @@ function CreateContact() {
     var file = $('#file')[0].files[0];
     var formData = new FormData();
     formData.append("File", file)
-    formData.append("FullName", name)
+    formData.append("FullName",name)
     formData.append("Email", email)
     formData.append("Phone", phone)
     formData.append("Subject", subject)
@@ -78,7 +78,7 @@ function CreateContact() {
                     notificationme();
                     document.getElementsByName('contact')[0].reset();
                     window.grecaptcha.reset();
-
+                    
                 } else {
                     alert("that bai")
                 }

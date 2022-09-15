@@ -6,12 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+    
     @RenderSection("head", false)
 </head>
 <body>
-    <div>
+    
         @RenderBody()
-    </div>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/js/fake_api.js" ></script>
+    <script src="~/js/cookies.js" ></script>
+    <script src="~/js/fake_api_listContact.js" ></script>
+    <script src="~/js/fake_api_contact.js" ></script>*@
+    
+     
     @RenderSection("Scripts", false)
 </body>
 </html>

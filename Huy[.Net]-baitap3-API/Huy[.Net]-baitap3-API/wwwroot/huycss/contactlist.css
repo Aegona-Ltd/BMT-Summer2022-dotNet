@@ -14,14 +14,37 @@ header{
 }
 form {
     border: 3px solid #f1f1f1;
-    margin-top: 200px;
+    padding: 20px 30px;
+    background-color: aliceblue;
+    
+}
+.contactList {
+        margin-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 200px;
+        width: 1000px !important;
+    }
+#viewcontact {
+        border: 3px solid #f1f1f1;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        padding: 20px 30px;
+        background-color: aliceblue;
+    }
+#contactEdit {
+    position: relative;
+    width: 400px;
+    background: white;
+    padding: 60px 40px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 200px;
-    padding: 20px 30px;
-    width: 1000px;
-    background-color: aliceblue;
-   
+}
+img {
+    width: 20px !important;
+    height: 20px !important;
 }
 body{
     height: 100vh;

@@ -7,6 +7,8 @@ using System.IO;
 using Newtonsoft.Json;
 using Microsoft.Web.Helpers;
 using System.Net;
+using ClosedXML.Excel;
+using System.Diagnostics;
 
 namespace Huy_.Net__baitap3_API.Services
 {
@@ -84,6 +86,46 @@ namespace Huy_.Net__baitap3_API.Services
             };
         }
 
-        
+        public void DeleteContact(int id)
+        {
+            var contact = _db.Contacts.Where(c => c.Id == id).SingleOrDefault();
+            _db.Contacts.Remove(contact);
+            _db.SaveChanges();
+        }
+
+        public ContactFormInfo Update(ContactFormInfo contactFormInfo)
+        {
+            var updateContact = _db.Contacts.SingleOrDefault(c=>c.Id == contactFormInfo.Id);
+            var oldFilePath = updateContact.FilePath;
+            if (System.IO.File.Exists(oldFilePath))
+            {
+                System.IO.File.Delete(oldFilePath);
+            }
+            updateContact.FullName = contactFormInfo.FullName;
+            updateContact.Email = contactFormInfo.Email;
+            updateContact.Phone = contactFormInfo.Phone;
+            updateContact.Subject = contactFormInfo.Subject;
+            updateContact.Message = contactFormInfo.Message;
+            updateContact.DaySend = contactFormInfo.DaySend;
+            updateContact.FilePath = contactFormInfo.FilePath;
+            _db.Entry(updateContact).State = EntityState.Modified;
+            _db.SaveChanges();
+            return new ContactFormInfo()
+            {
+                Id = updateContact.Id,
+                FullName = updateContact.FullName,
+                Email = updateContact.Email,
+                Phone = updateContact.Phone,
+                Subject = updateContact.Subject,
+                Message = updateContact.Message,
+                DaySend = updateContact.DaySend,
+                FilePath = updateContact.FilePath
+            }; 
+        }
+
+        public List<Contact> FindList()
+        {
+            return _db.Contacts.ToList();
+        }
     }
 }
