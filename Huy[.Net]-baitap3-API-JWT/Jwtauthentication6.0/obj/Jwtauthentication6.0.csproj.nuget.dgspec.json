@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LeQuangHuyWork\\.NETcoreMVC\\Jwtauthentication6.0\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj": {}
+    "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API-JWT\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj": {}
   },
   "projects": {
-    "D:\\LeQuangHuyWork\\.NETcoreMVC\\Jwtauthentication6.0\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj": {
+    "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API-JWT\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LeQuangHuyWork\\.NETcoreMVC\\Jwtauthentication6.0\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj",
+        "projectUniqueName": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API-JWT\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj",
         "projectName": "Jwtauthentication6.0",
-        "projectPath": "D:\\LeQuangHuyWork\\.NETcoreMVC\\Jwtauthentication6.0\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj",
+        "projectPath": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API-JWT\\Jwtauthentication6.0\\Jwtauthentication6.0.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\LeQuangHuyWork\\.NETcoreMVC\\Jwtauthentication6.0\\Jwtauthentication6.0\\obj\\",
+        "outputPath": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API-JWT\\Jwtauthentication6.0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
