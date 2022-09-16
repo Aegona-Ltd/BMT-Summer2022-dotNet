@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5ZzNefwCepzk6L+O/Y0PiH7xgQmcKAtLiJgz7q9rFn75VXTbZl1NUpl8BMsOM0316rPDNakdFTWoesR0wxtWcA==",
+  "dgSpecHash": "HtFWGPidkMKi2froIUDb66a3UTaeT9NdOsN0TPaMCrhUe+J7tRDgjvIj+P3GV0foM6dJQzcTQOpAMQh4NB2NvQ==",
   "success": true,
   "projectFilePath": "D:\\huy\\Summer2022-dotNet\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API\\Huy[.Net]-baitap3-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\closedxml\\0.96.0\\closedxml.0.96.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\csvhelper\\28.0.1\\csvhelper.28.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\epplus\\6.0.7\\epplus.6.0.7.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\epplus.interfaces\\6.0.0\\epplus.interfaces.6.0.0.nupkg.sha512",

@@ -17,6 +17,15 @@
           "lib/netstandard2.0/ClosedXML.dll": {}
         }
       },
+      "CsvHelper/28.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CsvHelper.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {}
+        }
+      },
       "DocumentFormat.OpenXml/2.16.0": {
         "type": "package",
         "dependencies": {
@@ -3528,6 +3537,30 @@
         "lib/netstandard2.0/ClosedXML.pdb",
         "lib/netstandard2.0/ClosedXML.xml",
         "nuget-logo.png"
+      ]
+    },
+    "CsvHelper/28.0.1": {
+      "sha512": "T/Eid0mP/GeWV1RcxmUPSsBCtOm6wHbFII6iFydPfpIa6cd+siec0KGrLq5uabI8sH6crFi84OA1vNLkp8Lzlw==",
+      "type": "package",
+      "path": "csvhelper/28.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.28.0.1.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "DocumentFormat.OpenXml/2.16.0": {
@@ -10616,6 +10649,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "ClosedXML >= 0.96.0",
+      "CsvHelper >= 28.0.1",
       "EPPlus >= 6.0.7",
       "Microsoft.AspNet.Mvc >= 5.2.9",
       "Microsoft.AspNet.WebHelpers >= 3.2.9",
@@ -10681,6 +10715,10 @@
           "ClosedXML": {
             "target": "Package",
             "version": "[0.96.0, )"
+          },
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[28.0.1, )"
           },
           "EPPlus": {
             "target": "Package",

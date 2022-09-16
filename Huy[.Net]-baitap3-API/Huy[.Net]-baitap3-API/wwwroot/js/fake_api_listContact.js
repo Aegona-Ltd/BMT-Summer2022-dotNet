@@ -314,14 +314,53 @@ function ExportExcel() {
         }
     });
 }
-    
+function ImportFile() {
+    var formData = new FormData();
+    var file = $('#formFile')[0].files[0];
+    formData.append("formFile", file)
+    $.ajax({
+        url: "http://localhost:5124/contactapi/importcsv",
+        type: 'POST',
+        data: formData,
+        cache: false,
+        contentType: false, // Not to set any content header
+        processData: false, // Not to process data
+        beforeSend: function () {
+            StartLoader1();
+        },
+        success: function (response) {
+            console.log("ok");
+            notificationme();
+            document.getElementsByName('contactList')[0].reset();
+
+        },
+        complete: function () {
+            EndLoader1();
+        }
+        //error: function (xhr, ajaxOptions, thrownError) {
+        //    console.log(xhr.status);
+        //    console.log(thrownError);
+        //}
+    });
+}
 function StartLoader() {
     $("#btnExcel").text('Loading...');
     $("#btnExcel").attr('disabled', true);
+    
+}
+function StartLoader1() {
+    $("#btnIFile").text('Loading...');
+    $("#btnIFile").attr('disabled', true);
 }
 function EndLoader() {
     $("#btnExcel").text('Export to Excel');
     $("#btnExcel").attr('disabled', false);
+    
+}
+function EndLoader1() {
+   
+    $("#btnIFile").text('Import File');
+    $("#btnIFile").attr('disabled', false);
 }
 function notificationme() {
     toastr.options = {

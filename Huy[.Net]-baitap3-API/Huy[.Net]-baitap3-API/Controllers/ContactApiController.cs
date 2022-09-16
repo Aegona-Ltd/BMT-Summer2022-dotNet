@@ -14,6 +14,10 @@ using Microsoft.EntityFrameworkCore;
 using Huy_.Net__baitap3_API.Entities;
 using OfficeOpenXml;
 using System.Data;
+using CsvHelper.Configuration;
+using System.Globalization;
+using CsvHelper;
+using Huy_.Net__baitap3_API.Data;
 
 namespace Huy_.Net__baitap3_API.Controllers
 {
@@ -25,14 +29,16 @@ namespace Huy_.Net__baitap3_API.Controllers
         private IWebHostEnvironment webHostEnvironment;
         private IMemoryCache memoryCache;
         private IDistributedCache distributedCache;
+        private WebContext _context;
         public ContactApiController(ContactService _contactService, IWebHostEnvironment _webHostEnvironment
-            , RecaptchaResult _captchaResult, IMemoryCache _memoryCache, IDistributedCache _distributedCache)
+            , RecaptchaResult _captchaResult, IMemoryCache _memoryCache, IDistributedCache _distributedCache, WebContext context)
         {
             contactService = _contactService;
             webHostEnvironment = _webHostEnvironment;
             captchaResult = _captchaResult;
             distributedCache = _distributedCache;
             memoryCache = _memoryCache;
+            _context = context;
         }
         //[HttpGet("redis")]
         //[Produces("application/json")]
@@ -299,43 +305,43 @@ namespace Huy_.Net__baitap3_API.Controllers
 
         //cach 2
 
-        //[HttpGet("ExporttoExcel")]
-        //public ActionResult ExportRecordtoExcel()
-        //{
-        //    //add test data
-        //    var obj = contactService.FindList();
-        //    //using System.Text;
-        //    StringBuilder str = new StringBuilder();
-        //    str.Append("<table border=`" + "1px" + "`b>");
-        //    str.Append("<tr>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>Id</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>FullName</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>Email</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>Phone</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>Subject</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>Message</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>DaySend</font></b></td>");
-        //    str.Append("<td><b><font face=Arial Narrow size=3>FilePath</font></b></td>");
-        //    str.Append("</tr>");
-        //    foreach (var contact in obj)
-        //    {
-        //        str.Append("<tr>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Id.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.FullName.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Email.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Phone.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Subject.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Message.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.DaySend.ToString() + "</font></td>");
-        //        str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.FilePath?.ToString() + "</font></td>");
-        //        str.Append("</tr>");
-        //    }
-        //    str.Append("</table>");
-        //    HttpContext.Response.Headers.Add("content-disposition", "attachment; filename=Information" + DateTime.Now.Year.ToString() + ".xlsx");
-        //    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-        //    byte[] temp = System.Text.Encoding.UTF8.GetBytes(str.ToString());
-        //    return File(temp, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        //}
+        [HttpGet("ExporttoExcel")]
+        public ActionResult ExportRecordtoExcel()
+        {
+            //add test data
+            var obj = contactService.FindList();
+            //using System.Text;
+            StringBuilder str = new StringBuilder();
+            str.Append("<table border=`" + "1px" + "`b>");
+            str.Append("<tr>");
+            str.Append("<td><b><font face=Arial Narrow size=3>Id</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>FullName</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>Email</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>Phone</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>Subject</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>Message</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>DaySend</font></b></td>");
+            str.Append("<td><b><font face=Arial Narrow size=3>FilePath</font></b></td>");
+            str.Append("</tr>");
+            foreach (var contact in obj)
+            {
+                str.Append("<tr>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Id.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.FullName.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Email.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Phone.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Subject.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.Message.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.DaySend.ToString() + "</font></td>");
+                str.Append("<td><font face=Arial Narrow size=" + "14px" + ">" + contact.FilePath?.ToString() + "</font></td>");
+                str.Append("</tr>");
+            }
+            str.Append("</table>");
+            HttpContext.Response.Headers.Add("content-disposition", "attachment; filename=Information" + DateTime.Now.Year.ToString() + ".xlsx");
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            byte[] temp = System.Text.Encoding.UTF8.GetBytes(str.ToString());
+            return File(temp, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        }
 
         //application/vnd.ms-excel
 
@@ -343,37 +349,84 @@ namespace Huy_.Net__baitap3_API.Controllers
         //cach 3
 
 
-        [HttpGet("ExportToExcel")]
-        public IActionResult ExportToExcel()
-        {
-            var obj = contactService.FindList();
-            //using System.Data;
-            DataTable dt = new DataTable("Grid");
-            dt.Columns.AddRange(new DataColumn[8] {
-                new DataColumn("Id"),
-                new DataColumn("FullName"),
-                new DataColumn("Email"),
-                new DataColumn("Phone"),
-                new DataColumn("Subject"),
-                new DataColumn("Message"),
-                new DataColumn("DaySend"),
-                new DataColumn("FilePath")
-            });
+        //[HttpGet("ExportToExcel")]
+        //public IActionResult ExportToExcel()
+        //{
+        //    var obj = contactService.FindList();
+        //    //using System.Data;
+        //    DataTable dt = new DataTable("Grid");
+        //    dt.Columns.AddRange(new DataColumn[8] {
+        //        new DataColumn("Id"),
+        //        new DataColumn("FullName"),
+        //        new DataColumn("Email"),
+        //        new DataColumn("Phone"),
+        //        new DataColumn("Subject"),
+        //        new DataColumn("Message"),
+        //        new DataColumn("DaySend"),
+        //        new DataColumn("FilePath")
+        //    });
 
-            foreach (var con in obj)
+        //    foreach (var con in obj)
+        //    {
+        //        dt.Rows.Add(con.Id, con.FullName, con.Email, con.Phone, con.Subject, con.Message, con.DaySend, con.FilePath);
+        //    }
+        //    //using ClosedXML.Excel;
+        //    using (XLWorkbook wb = new XLWorkbook(XLEventTracking.Disabled))
+        //    {
+        //        wb.Worksheets.Add(dt);
+        //        using (MemoryStream stream = new MemoryStream())
+        //        {
+        //            wb.SaveAs(stream);
+        //            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "contactlist.xlsx");
+        //        }
+        //    }
+        //}
+        [HttpPost("importcsv")]
+        public async Task<IActionResult> ImportFromCsv(IFormFile formFile)
+        {
+            var data = new MemoryStream();
+            await formFile.CopyToAsync(data);
+            data.Position = 0;
+            using (var reader = new StreamReader(data))
             {
-                dt.Rows.Add(con.Id, con.FullName, con.Email, con.Phone, con.Subject, con.Message, con.DaySend, con.FilePath);
-            }
-            //using ClosedXML.Excel;
-            using (XLWorkbook wb = new XLWorkbook(XLEventTracking.Disabled))
-            {
-                wb.Worksheets.Add(dt);
-                using (MemoryStream stream = new MemoryStream())
+                var bad = new List<string>();
+                var conf = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
-                    wb.SaveAs(stream);
-                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "contactlist.xlsx");
+                    HasHeaderRecord = true,
+                    HeaderValidated = null,
+                    MissingFieldFound = null,
+                    BadDataFound = context =>
+                    {
+                        bad.Add(context.RawRecord);
+                    }
+                };
+                using(var csvReader = new CsvReader(reader, conf))
+                {
+                    while (csvReader.Read())
+                    {
+                        var fullName = csvReader.GetField(0).ToString();
+                        var email = csvReader.GetField(1).ToString();
+                        var phone = csvReader.GetField(2).ToString();
+                        var subject = csvReader.GetField(3).ToString();
+                        var message = csvReader.GetField(4).ToString();
+                        var daySend = csvReader.GetField(5).ToString();
+                        _context.Contacts.AddAsync(new Contact
+                        {
+                            FullName = fullName,
+                            Email = email,
+                            Phone = phone,
+                            Subject = subject,
+                            Message = message,
+                            DaySend = DateTime.Parse(daySend)   
+                        });
+                        _context.SaveChanges();
+                    }
                 }
+                
             }
+            return Ok();
         }
+        
+
     }
 }

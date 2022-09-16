@@ -11,9 +11,22 @@
 
 }
 <section class="my-4">
-<form class="contactList" id="form" action="">
+<form class="contactList" name="contactList" id="form" action="" enctype="multipart/form-data">
     <header>Contact List</header>
-    <button id="btnExcel" onclick="ExportExcel()" class="btn btn-info">Export to Excel</button>
+    <div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <button id="btnExcel" onclick="ExportExcel()" class="btn btn-info">Export to Excel</button>
+    </div>
+    <div class="col">
+      <input type="file" class="form-control form-control-sm" name="formFile" id="formFile" >
+    </div>
+    <div class="col">
+      <button id="btnIFile" onclick="ImportFile()" class="btn btn-info">Import File</button>
+    </div>
+  </div>
+</div>
+
     <table class="table table-hover" id="table">
         <thead>
           <tr>
@@ -36,7 +49,7 @@
       </nav>
 </form>
 </section>
-     
+
 <div class="modal fade" id="viewct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -69,7 +82,7 @@
                     </form>
       </div>
       <div class="modal-footer" id="modal-footer">
-        
+
       </div>
     </div>
   </div>
@@ -144,14 +157,14 @@
     </form>
       </div>
       <div class="modal-footer" id="modal-footer1">
-               @* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" onclick="contactFormEdit(document.contact)" class="btn btn-primary">Edit</button>*@
+                @* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" onclick="contactFormEdit(document.contact)" class="btn btn-primary">Edit</button>*@
       </div>
     </div>
   </div>
 </div>
 @section Scripts{
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @*<script src="~/js/fake_api.js" ></script>*@
@@ -161,5 +174,5 @@
     @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>*@
     @*<script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-    
+
 }

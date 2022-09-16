@@ -9,6 +9,7 @@
       "Huy[.Net]-baitap3-API/1.0.0": {
         "dependencies": {
           "ClosedXML": "0.96.0",
+          "CsvHelper": "28.0.1",
           "EPPlus": "6.0.7",
           "Microsoft.AspNet.Mvc": "5.2.9",
           "Microsoft.AspNet.WebHelpers": "3.2.9",
@@ -41,6 +42,14 @@
           "lib/netstandard2.0/ClosedXML.dll": {
             "assemblyVersion": "0.96.0.0",
             "fileVersion": "0.96.0.0"
+          }
+        }
+      },
+      "CsvHelper/28.0.1": {
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "assemblyVersion": "28.0.0.0",
+            "fileVersion": "28.0.1.0"
           }
         }
       },
@@ -2611,6 +2620,13 @@
       "sha512": "sha512-3VLfl4wCMHDuaV0GwA9MHY6BvKlTH4zaNG/ah6QODCZYMqLS6m0JVZph5kGpbuCCCyKXdO2hiUd/e35Wzd/Zmw==",
       "path": "closedxml/0.96.0",
       "hashPath": "closedxml.0.96.0.nupkg.sha512"
+    },
+    "CsvHelper/28.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T/Eid0mP/GeWV1RcxmUPSsBCtOm6wHbFII6iFydPfpIa6cd+siec0KGrLq5uabI8sH6crFi84OA1vNLkp8Lzlw==",
+      "path": "csvhelper/28.0.1",
+      "hashPath": "csvhelper.28.0.1.nupkg.sha512"
     },
     "DocumentFormat.OpenXml/2.16.0": {
       "type": "package",

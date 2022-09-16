@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[0.96.0, )"
             },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[28.0.1, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[6.0.7, )"
